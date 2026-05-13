@@ -6,7 +6,7 @@ const JobSchema = new mongoose.Schema({
     location: { type: String, required: true },
     salary: { type: Number },
     category: { type: String },
-    createdAt: { type: Date, default: Date.now }
+    postedAt: { type: Date, default: Date.now }
 });
 
 module.exports = mongoose.model('Job', JobSchema);
