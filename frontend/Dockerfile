@@ -1,4 +1,4 @@
-# Node image එක ගන්නවා
+# Frontend Docker setup
 FROM node:18
 
 WORKDIR /usr/src/app

@@ -1,38 +1,342 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+.app {
+  font-family: 'Segoe UI', Roboto, sans-serif;
+  background-color: #ebf5fb;
   min-height: 100vh;
+  padding: 20px;
+}
+
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+  padding: 40px 50px;
+  background: linear-gradient(135deg, #0a2540 0%, #1a365d 100%);
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(10, 37, 64, 0.25);
+  border: 1px solid #0f2b48;
+}
+
+.header-content {
+  flex: 1;
+  min-width: 300px;
+  text-align: left;
+}
+
+.header-title {
+  color: #ffffff;
+  margin: 0 0 10px 0;
+  font-size: 2.6rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+.header-subtitle {
+  color: #93c5fd;
+  margin: 0 0 30px 0;
+  font-size: 1.15rem;
+  font-weight: 500;
+}
+
+.search-input {
+  width: 100%;
+  max-width: 450px;
+  padding: 15px 25px;
+  font-size: 16px;
+  border: none;
+  border-radius: 30px;
+  outline: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  background-color: #ffffff;
+  color: #0a2540;
+}
+
+.header-illustration {
+  flex: 1;
+  min-width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-illustration img {
+  max-width: 320px;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  filter: drop-shadow(0px 5px 15px rgba(0, 0, 0, 0.1));
+}
+
+.jobs-main {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.jobs-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.jobs-section-title {
+  color: #0a2540;
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.jobs-count {
+  background-color: #e3f2fd;
+  color: #0a2540;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.jobs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 25px;
+}
+
+.job-card {
+  background-color: #ffffff;
+  padding: 0;
+  border-radius: 14px;
+  box-shadow: 0 4px 15px rgba(10, 37, 64, 0.05);
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid #e3f2fd;
+  border-left: 6px solid #0a2540;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
+}
+
+.job-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(10, 37, 64, 0.15);
+  border-color: #90caf9;
+}
+
+.job-card-body {
+  padding: 25px;
+  flex: 1;
+}
+
+.job-card-category {
+  display: inline-block;
+  background-color: #f0f7ff;
+  color: #1e88e5;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.job-card-title {
+  color: #0a2540;
+  margin: 0 0 12px 0;
+  font-weight: 700;
+  font-size: 1.25rem;
+  line-height: 1.3;
+}
+
+.job-card-company {
+  color: #1e88e5;
+  font-weight: 600;
+  margin: 0 0 8px 0;
+}
+
+.job-card-location {
+  color: #607d8b;
+  margin: 0 0 12px 0;
+  font-size: 14px;
+}
+
+.job-card-description {
+  color: #78909c;
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 0 0 16px 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.job-card-footer {
+  display: flex;
   align-items: center;
+  justify-content: space-between;
+  padding: 16px 25px;
+  background-color: #f8fbfe;
+  border-top: 1px solid #e3f2fd;
+}
+
+.job-card-salary {
+  background-color: #e3f2fd;
+  color: #0a2540;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.job-card-action {
+  color: #0a2540;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.status-message {
+  text-align: center;
+  color: #546e7a;
+  padding: 40px 20px;
+}
+
+.status-message.loading {
+  color: #0a2540;
+  font-weight: bold;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(10, 37, 64, 0.5);
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(4px);
+}
+
+.modal-content {
+  background-color: #ffffff;
+  padding: 35px;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 550px;
+  max-height: 85vh;
+  overflow-y: auto;
+  box-shadow: 0 10px 40px rgba(10, 37, 64, 0.3);
+  border: 1px solid #bbdefb;
+}
+
+.modal-title {
+  color: #0a2540;
+  margin: 0 0 10px 0;
+}
+
+.modal-company {
+  color: #1e88e5;
+  margin: 0 0 20px 0;
+}
+
+.modal-details {
+  margin-bottom: 20px;
+  background-color: #f5f9fc;
+  padding: 15px;
+  border-radius: 10px;
+  border: 1px solid #e3f2fd;
+}
+
+.modal-details p {
+  margin: 8px 0;
+  color: #37474f;
+}
+
+.modal-section-title {
+  color: #0a2540;
+  margin: 0 0 10px 0;
+}
+
+.modal-description {
+  color: #455a64;
+  line-height: 1.6;
+  margin: 0 0 30px 0;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  gap: 12px;
+}
+
+.btn {
+  border: none;
+  padding: 12px 25px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btn-secondary {
+  background-color: #78909c;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.btn-primary {
+  background-color: #0a2540;
+  color: white;
+  box-shadow: 0 4px 10px rgba(10, 37, 64, 0.3);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.btn-muted {
+  background-color: #cfd8dc;
+  color: #37474f;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  color: #37474f;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #b0bec5;
+  outline: none;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+.form-group textarea {
+  resize: none;
+}
+
+.success-message {
+  text-align: center;
+  padding: 30px 10px;
+}
+
+.success-message h2 {
+  color: #2e7d32;
+  margin: 0 0 10px 0;
+}
+
+.success-message p {
+  color: #455a64;
+  font-weight: 500;
+  line-height: 1.5;
 }

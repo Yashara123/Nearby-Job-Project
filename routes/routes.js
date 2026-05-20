@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const jobController = require('../controllers/jobController');
+const jobRoutes = require('./jobRoutes');
 
-router.post('/', jobController.createJob);
-router.get('/', jobController.getAllJobs);
+// Mount job routes at /jobs
+router.use('/jobs', jobRoutes);
 
 module.exports = router;
